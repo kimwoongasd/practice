@@ -16,3 +16,12 @@ class Unit:
         
         else:
             print(f'{self.name} 유닛이 파괴 되었습니다.')
+            
+class AttackUnit(Unit):
+    def __init__(self, name, hp, speed, damage):
+        Unit.__init__(self, name, hp, speed)
+        self.damage = damage
+        
+    def attack(self, location):
+        print(f'{self.name} : {location} 방향으로 공격합니다. [공격력 {self.damage}]')
+        
