@@ -88,3 +88,10 @@ class Wraith(FlyableAttackUnit):
         else:
             print(f'{self.name} : 클로킹 모드로 전환합니다')
             self.clocked = True
+            
+def game_start():
+    print('게임을 시작합니다')
+    
+def game_over():
+    print('Player : gg')
+    print('[Player] 님이 게임에서 퇴장하셨습니다.')
