@@ -75,3 +75,16 @@ class FlyableAttackUnit(AttackUnit, Flyalbe):
         print('[공중 유닛 이동]')
         self.fly(self.name, location)
         
+class Wraith(FlyableAttackUnit):
+    def __init__(self):
+        FlyableAttackUnit.__init__('레이스', 80, 20, 5)
+        self.clocked = False
+        
+    def clocking(self):
+        if self.clocked == True:
+            print(f'{self.name} : 클로킹 모드 해제합니다')
+            self.clocked = False
+        
+        else:
+            print(f'{self.name} : 클로킹 모드로 전환합니다')
+            self.clocked = True
