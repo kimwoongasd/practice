@@ -25,6 +25,39 @@ class AttackUnit(Unit):
     def attack(self, location):
         print(f'{self.name} : {location} 방향으로 공격합니다. [공격력 {self.damage}]')
         
+class Marine(AttackUnit):
+    def __init__(self):
+        AttackUnit.__init__(self, '마린', 40, 1, 5)
+    
+    def stimpack(self):
+        if self.hp > 10:
+            self.hp -= 10
+            print(f'{self.name} : 스팀팩을 사용합니다. (Hp 10 감소)')
+        
+        else:
+            print(f'{self.name} : 체력이 부족하여 스팀팩을 사용하지 못합니다.')
+
+class Tank(AttackUnit):
+    seize_delveloped = False
+    
+    def __init__(self):
+        AttackUnit.__init__(self, '탱크', 150, 1, 35)
+        self.seize_mode = False
+        
+    def set_seize_mode(self):
+        if Tank.seize_delveloped == False:
+            return
+        
+        if self.seize_mode == False:
+            print(f'{self.name} : 시즈모드로 전환합니다.')
+            self.damage *= 2
+            self.seize_mode = True
+        
+        else:
+            print(f'{self.name} : 시즈모드를 해제합니다.')
+            self.damage /= 2
+            self.seize_mode = False
+        
 class Flyalbe:
     def __init__(self, fly_speed):
         self.fly_speed = fly_speed
@@ -41,3 +74,4 @@ class FlyableAttackUnit(AttackUnit, Flyalbe):
     def move(self, location):
         print('[공중 유닛 이동]')
         self.fly(self.name, location)
+        
