@@ -29,7 +29,7 @@ class Flyalbe:
     def __init__(self, fly_speed):
         self.fly_speed = fly_speed
         
-    def move(self, name, location):
+    def fly(self, name ,location):
         print(f'{name} : {location} 방향으로 날아갑니다. [속도 {self.fly_speed}]')
         
 
@@ -37,3 +37,7 @@ class FlyableAttackUnit(AttackUnit, Flyalbe):
     def __init__(self, name, hp, damage, fly_speed):
         AttackUnit.__init__(self, name, hp, 0, damage)
         Flyalbe.__init__(fly_speed)
+        
+    def move(self, location):
+        print('[공중 유닛 이동]')
+        self.fly(self.name, location)
