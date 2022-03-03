@@ -7,7 +7,7 @@ class Unit:
         print(f'{name} 유닛이 생성 되었습니다')
         
     def move(self, location):
-        print(f'[지상 유닛 이동] {self.name} : {location} 방향으로 이동합니다. [속도 {self.speed}]')
+        print(f'{self.name} : {location} 방향으로 이동합니다. [속도 {self.speed}]')
         
     def damaged(self, damage):
         print(f'{self.name} : {damage} 데미지를 입었습니다.')
@@ -73,7 +73,6 @@ class FlyableAttackUnit(AttackUnit, Flyalbe):
         Flyalbe.__init__(self, fly_speed)
         
     def move(self, location):
-        print('[공중 유닛 이동]')
         self.fly(self.name, location)
         
 class Wraith(FlyableAttackUnit):
